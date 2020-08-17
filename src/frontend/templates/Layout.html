@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .navbar {
+      overflow: hidden;
+      background-color: #4CAF50;
+    }
+    .navbar a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 10px 12px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .navbar a:hover {
+      background-color: #333;
+      color: white;
+    }
+  </style>
+  <head>
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>SFA-Blog</title>
+    {% endif %}
+  </head>
+  <body>
+      {% block Header %} {% endblock %}
+      <div class="navbar" id='navBar'>
+        <a href="/">HOME</a>
+        <a href="/About">ABOUT</a>
+      </div>
+      {% block content %}{% endblock %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <span style="color: red;"> {{ message }} </span> <br>
+            {% endfor %}
+        {% endif %}
+      {% endwith %}
+  </body>
+</html>

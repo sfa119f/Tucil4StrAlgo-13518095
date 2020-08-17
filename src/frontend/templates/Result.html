@@ -1,0 +1,47 @@
+{% extends "Layout.html" %}
+{% block Header %} 
+    <H1>SFA InfoExtraction App</H1>
+{% endblock %}
+{% block content %}
+    <style>
+        table{
+            text-align: left;
+        }
+        td, th{
+            vertical-align: top;
+        }
+    </style>
+    <p>
+        <span style="font-weight: bold; font-size: x-large;">Result</span>
+    </p>
+    <table>
+        <tr>
+            <th>Keyword</th> <th>:</th> <td>{{page.keyword}}</td>
+        </tr>
+        <tr>
+            <th>Algorithm</th> <th>:</th> <td>{{page.algorithm}}</td>
+        </tr>
+        <tr>
+            <th>Number of Found</th> <th>:</th> <td>{{page.totalFind}}</td>
+        </tr>
+    </table>
+    <br>
+    {% for result in page.listResult %}
+        <table>
+            <tr>
+                <th>Filename</th> <th>:</th> <td>{{result[0]}}</td>
+            </tr>
+            <tr>
+                <th>Total</th> <th>:</th> <td>{{result[1]}}</td>
+            </tr>
+            <tr>
+                <th>Time</th> <th>:</th> <td>{{result[2]}}</td>
+            </tr>
+            <tr>
+                <th>Sentence</th> <th>:</th> <td>{{result[3]}}</td>
+            </tr>
+        </table>
+        <br>
+    {% endfor %}
+
+{% endblock %}

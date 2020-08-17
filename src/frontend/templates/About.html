@@ -1,0 +1,26 @@
+{% extends "Layout.html" %}
+{% block Header %} 
+    <H1>SFA InfoExtraction App</H1>
+{% endblock %}
+{% block content %}
+    <style>
+        table{
+            text-align: left;
+        }
+        td, th{
+            vertical-align: top;
+        }
+    </style>
+    <p>
+        <span style="font-weight: bold; font-size: x-large;">About App</span>
+    </p>
+    <table>
+        {% for data in page.about %}
+        <tr>
+            <th>{{data[0]}}</th>
+            <th>:</th>
+            <td>{{data[1]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

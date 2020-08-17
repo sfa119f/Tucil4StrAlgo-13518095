@@ -1,0 +1,22 @@
+{% extends "Layout.html" %}
+{% block Header %} 
+    <H1>SFA InfoExtraction App</H1>
+{% endblock %}
+{% block content %}
+    <form action="" method="post" name="interface">            
+        {{form.hidden_tag()}}
+        <p> 
+            <strong>{{form.folder.label}} :</strong> {{form.folder(size=32)}} 
+        </p>
+        <p> 
+            <strong>{{form.keyword.label}} &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; :</strong> {{ form.keyword(size=32) }} 
+        </p>
+        <p> 
+            <strong>{{form.algorithm.label}} :</strong> {{ form.algorithm(size=32) }}
+            {% for error in form.algorithm.errors %}
+                <span style="color: red;">Warning!!! <br> [{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p> {{form.submit()}} </p>
+    </form>
+{% endblock %}
